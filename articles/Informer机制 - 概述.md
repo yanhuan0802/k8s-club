@@ -109,7 +109,7 @@ type PodInformer interface {
 func (f *podInformer) Informer() cache.SharedIndexInformer {
 	return f.factory.InformerFor(&corev1.Pod{}, f.defaultInformer)
 }
-// 2.2 获取podInformer实例的Indexer，之后实例话PodListener，提供List和Pods功能
+// 2.2 获取podInformer实例的Indexer，之后实例化PodListener，提供List和Pods功能
 func (f *podInformer) Lister() v1.PodLister {
 	return v1.NewPodLister(f.Informer().GetIndexer())
 }
